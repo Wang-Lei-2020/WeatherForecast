@@ -15,3 +15,13 @@
 	进行中:了解python和时序模型，ARIMA模型，
 	根据资料对ARIMA模型进行python代码实现，还没完成。
 2020.07.01 
+
+18301138 吴介豪的工作完成情况以及计划：
+	配置eclipse环境下的springmvc项目，
+	同时安装配置了tomcat，
+	了解了部分springMVC的原理和实现，写了一个简单demo。
+	遇到问题:
+	在eclipse配置tomcat时发现没有server选项，查阅资料发现是
+	eclipse版本问题，通过“Kepler” repository - http://download.eclipse.org/releases/kepler
+	重新配置后解决了这一问题。
+2020.07.02
