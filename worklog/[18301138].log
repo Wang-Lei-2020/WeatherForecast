@@ -25,3 +25,9 @@
 	eclipse版本问题，通过“Kepler” repository - http://download.eclipse.org/releases/kepler
 	重新配置后解决了这一问题。
 2020.07.02
+
+18301138 吴介豪的工作完成情况以及计划：
+	完成了index登陆界面的设计，完成了eclipse和mysql数据库的
+	连接，进一步了解sprintmvc的控制器相关原理，计划进一步
+	登陆与后端的相关设计。
+2020.07.03
