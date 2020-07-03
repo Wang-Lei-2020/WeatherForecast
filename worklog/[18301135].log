@@ -28,3 +28,7 @@
 今天下午在求ARIMA模型中的p,q系数时，遇到了error：reduction operation 'argmin' not allowed for this dtype
 经过搜索才知道是数据类型错误，加上astype('float64')后成功解决问题，获得p q系数值，建立ARIMA模型，
 之后我的主要任务为完善ARIMA模型。
+
+2020.07.03
+今天将ARIMA模型得到完善，并且完成了任务十二：建立基于时间序列的数据模型，同时进行了任务十三：创建python处理类
+并且测试成功，生成最大气温和最小气温的预测图，现在计划深入了解，探寻更多预测的方法，以求将预测更加准确。
