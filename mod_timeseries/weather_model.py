@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
+from mod_timeseries.file_transfer import SendFile
 from mod_timeseries.process_json import format_json
 
 
@@ -46,5 +47,5 @@ class ProcessData(object):
         plt.savefig(self.data_type+'.png', dpi = 100)
 
         #send file
-        #send = SendFile(fileName = self.data_type + '.png')
-        #send.send()
+        send = SendFile(fileName = self.data_type + '.png')
+        send.send()
