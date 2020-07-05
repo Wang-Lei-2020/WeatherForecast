@@ -31,3 +31,6 @@ python的基础语法知识。
 的研究，我尝试在我的本地运行代码。
 20207.4
  学习Java和python的对接
+2020.7.5
+   java怎么调用python微服务接口，在csdn上看了java 调用 python 接口，在java类中直接执行python语句，他需要Jython语言，所以应该不用这个。之后还有
+在java中调用本地python脚本和使用Runtime.getRuntime()执行脚本文件。感觉应该用使用Runtime.getRuntime()执行脚本文件比较适合
