@@ -1,5 +1,7 @@
 # coding=gbk
 from flask import Flask
+import pandas as pd
+from mod_timeseries.weather_model import ProcessData
 
 #Define the WSGI application object
 
@@ -24,6 +26,12 @@ def show_user_profile(username):
 def show_post(post_id):
     # show the post with the given id, the id is an integer
     return 'Post %d' % post_id
+
+@app.route('/picture')
+def show_pic():
+    data = pd.read_csv('F:/Git/Weather/maxmin.csv', parse_dates=['date'])
+    p = ProcessData(data, 10, 'max')
+    p.process_minmax()
 
 
 if __name__ == '__main__':

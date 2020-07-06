@@ -9,13 +9,13 @@ import statsmodels.api as sm
 from statsmodels.graphics.api import qqplot #qq图
 
 data = pd.read_csv('F:/Git/Weather/maxmin.csv', parse_dates = ['date'])
+data.query("date.dt.day == 4 & date.dt.month == 7",inplace = True)
 dta = data['tmin']
 dta_year = data['date']
 
 #得到开始年份和结束年份
 begin_year = dta_year[0:1].dt.year    # index value
 end_year = dta_year[-1:].dt.year
-
 
 #设置数据类型
 dta = np.array(dta,dtype = np.float)

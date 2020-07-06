@@ -7,7 +7,9 @@ class SendFile():
 
     def send(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        print(11111111)
         s.connect(self.address)
+        print(22222222)
         send_file = os.path.normcase(self.fileName)
         try:
             f = open(send_file, "rb")
