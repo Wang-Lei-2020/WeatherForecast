@@ -7,7 +7,7 @@ Created on Sun Jul  5 18:23:03 2020
 
 #load the data
 import pandas as pd
-data = pd.read_csv('E:\\maxmin.csv')
+data = pd.read_csv('E:\\min.csv')
 #print(data)
 
 #divide into train and validation set
@@ -23,7 +23,7 @@ train['tmin'].plot()
 valid['tmin'].plot()
 
 #building the model
-from pyramid.arima import auto_arima
+from pmdarima import auto_arima
 model = auto_arima(train,trace=True,error_action='ignore',suppress_warnings=True)
 model.fit(train)
 
@@ -32,9 +32,9 @@ forecast = pd.DataFrame(forecast,index = valid.index,columns = ['Prediction'])
 
 #plot the predictions for validation set
 import matplotlib.pyplot as plt
-plt.plot(train,label='Train')
+plt.plot(train,label='Train',color='BLUE')
 plt.plot(valid,label='Valid')
-plt.plot(forecast,label='Predication')
+plt.plot( forecast,label='Predication',color='RED')
 plt.show()
 
 #calculate rmse
