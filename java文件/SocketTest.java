@@ -9,28 +9,28 @@ import java.net.UnknownHostException;
 public class SocketTest {
 
 	public static void main(String[] args) {
-		//»ñÈ¡JsonÊı¾İ
-	 	String i = receive(2,7,22);
+		//é”Ÿæ–¤æ‹·å–Jsoné”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
+	 	String i = receive(0,7,6);
 	    System.out.println(i);
 	}
 
-	//·µ»Ø7ÌìµÄÆøÎÂ×Ö·û´®,cityÊÇ³ÇÊĞ±àºÅ£¬0£º±±¾©£¬1£ºÎäºº£¬2£º¹ãÖİ£¬3£ºÉòÑô£¬4£ºÀ¥Ã÷
+	//é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·7é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·å€é”Ÿæ–¤æ‹·é”Ÿï¿½,cityé”Ÿè§’ç­¹æ‹·é”Ÿå«æ†‹æ‹·ç‰›é”Ÿï¿½0é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·1é”Ÿæ–¤æ‹·é”Ÿæˆ’æ±‰é”Ÿæ–¤æ‹·2é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ·ï½æ‹·3é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·4é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 	public static String receive(int city,int month,int day)  {
-		// ÉèÖÃ·¢ËÍµØÖ·ºÍ¶Ë¿ÚºÅ
+		// é”Ÿæ–¤æ‹·é”ŸçŸ«å‡¤æ‹·é”Ÿé…µç¢‰æ‹·å€é”Ÿé…µç«¯å£çŒ´æ‹·
 		String ip = "localhost";
 		int port = 9999;
 		Socket socket = null;
 		try {
-			// Á¬½Ó·şÎñÆ÷
+			// é”Ÿæ–¤æ‹·é”Ÿæ¥å‡¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 			socket = new Socket(ip, port);
-			// »ñÈ¡ÊäÈëÁ÷
-			InputStream in = socket.getInputStream();   //¶ÁÈ¡Êı¾İ
-			// »ñÈ¡Êä³öÁ÷
-			OutputStream out = socket.getOutputStream(); // ·¢ËÍÊı¾İ
+			// é”Ÿæ–¤æ‹·å–é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
+			InputStream in = socket.getInputStream();   //é”Ÿæ–¤æ‹·å–é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
+			// é”Ÿæ–¤æ‹·å–é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½
+			OutputStream out = socket.getOutputStream(); // é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 			BufferedReader inRead = new BufferedReader(new InputStreamReader(in));
 			
 			try {
-			    // ·¢ËÍÊı¾İ
+			    // é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 			    out.write(month);
 			    Thread.sleep(10);
 			    out.write(day);
@@ -40,42 +40,64 @@ public class SocketTest {
 				e.printStackTrace();
 			}
 		
-			// ½ÓÊÜÓ¦´ğ
+			// é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·åº”é”Ÿæ–¤æ‹·
 			String result = inRead.readLine();  
 			
 			String[] data = result.split(",");
 			
 			result = "";
 			
-		 	//µÃµ½StringÀàĞÍµÄÊı¾İ
-		 	for(int n = 0;n < 14;n++) {
-		 		if(n == 0) {
-		 			data[n] = cut(data[n],15);
-		 		}
-		 		else if(n == 13) {
-		 			data[n] = cut(data[n],14);
-		 			data[n] = data[n].substring(0, data[n].length()-2);
-		 		}
-		 		else {
-		 	        data[n] = cut(data[n],14);
-		 		}
-		 		data[n] = data[n].substring(0, 4);
-		 	}
+		 	//é”ŸçŸ«ç¢‰æ‹·Stringé”Ÿæ–¤æ‹·é”Ÿé…µç¢‰æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
+			if(data[0].charAt(10) < '3' ) {
+		 	   for(int n = 0;n < 14;n++) {
+		 		   System.out.println(data[n]);
+		 		   if(n == 0) {
+		 		   	   data[n] = cut(data[n],15);
+		 		   }
+		 		   else if(n == 13) {
+		 			   data[n] = cut(data[n],14);
+		 			   data[n] = data[n].substring(0, data[n].length()-2);
+		 		   }
+		 		   else {
+		 	            data[n] = cut(data[n],13);
+		 		   }
+		 		   
+		 		   data[n] = data[n].substring(0, 4);
+		 		
+		 	   }
+			}
+			else {
+				for(int n = 0;n < 14;n++) {
+			 		   if(n == 0) {
+			 		   	   data[n] = cut(data[n],14);
+			 		   }
+			 		   else if(n == 13) {
+			 			   data[n] = cut(data[n],13);
+			 			   data[n] = data[n].substring(0, data[n].length()-2);
+			 		   }
+			 		   else {
+			 	            data[n] = cut(data[n],12);
+			 		   }
+			 		   data[n] = data[n].substring(0, 4);
+			 		
+			 		   //System.out.println(data[n]);
+			 	   }
+			}
 			
-		 	//µÃµ½doubleÀàĞÍµÄÆøÎÂÊı¾İ(ÉãÊÏ¶È)£»tÊı×éÖĞ´æ·ÅÁ¬ĞøÆßÌìµÄÆøÎÂÊı¾İ£¬Ò»ÌìµÄtmaxÓëtminÏàÁ¬
+		 	//é”ŸçŸ«ç¢‰æ‹·doubleé”Ÿæ–¤æ‹·é”Ÿé…µç¢‰æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·(é”Ÿæ–¤æ‹·é”Ÿè¾ƒè®¹æ‹·)é”Ÿæ–¤æ‹·té”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿå«è¾¾æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ·ï½æ‹·ä¸€é”Ÿæ–¤æ‹·é”Ÿçµ«maxé”Ÿæ–¤æ‹·tminé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
  	        double[] t = new double[14];
  	        for(int n = 0;n < 14;n++) {
  	        	t[n] = Double.parseDouble(data[n]);
- 	        	//»ªÊÏ¶È±äÎªÉãÊÏ¶È
+ 	        	//é”Ÿæ–¤æ‹·é”Ÿè¾ƒåº¦æ†‹æ‹·ä¸ºé”Ÿæ–¤æ‹·é”Ÿè¾ƒè®¹æ‹·
  	        	t[n] = (t[n]-32)*5/9;
  	        }
 		 	
- 	       //ÔÙ±äÎªString
+ 	       //é”ŸåŠ«æ†‹æ‹·ä¸ºString
  	       for(int n = 0;n < 14;n++) {
  	    	   data[n] = (t[n] + "").substring(0, 4);
  	       }
  	        
- 	       //String½áºÏÆğÀ´
+ 	       //Stringé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½
 		   for(int n =0; n<14; n++) {
 				if(n<=12) {
 		 	       result += data[n] + ",";
@@ -95,7 +117,7 @@ public class SocketTest {
 		return "default";
 	}
 	
-	//È¥µô×Ö·û´®µÄÇ°¼¸Î»
+	//å»é”Ÿæ–¤æ‹·é”Ÿè¡—å‡¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·å‰é”Ÿæ–¤æ‹·ä½
 	public static String cut(String origin, int count) {    
 		if (origin == null || origin.length() < count) {        
 		    return null;    
