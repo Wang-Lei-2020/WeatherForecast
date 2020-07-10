@@ -8,5 +8,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="F:/大二下学期/小学期/tomcat9.0/tomcat/lib/annotations-api.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="https://javaee.github.io/javaee-spec/javadocs/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
