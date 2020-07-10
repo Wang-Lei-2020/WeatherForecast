@@ -28,7 +28,7 @@ while True:
 	              #11：杭州 12：合肥 13：呼和浩特 14：济南 15：:遵义
 	              #16：拉萨 17：南昌 18：南充 19：南京 20：齐齐哈尔
 	              #21：郑州 22：石家庄 23：太原 24：乌鲁木齐 25：西宁
-	              #26：延安 27：延川
+	              #26：延安 27：延川 28:天津
 	print(city)
 	print(month)
 	print(day)
@@ -89,8 +89,8 @@ while True:
 		filename = 'F:/Git/Weather/yanan.csv'
 	elif city == 27:
 		filename = 'F:/Git/Weather/yanchuan.csv'
-	#elif city == 28:
-	#	filename = 'F:/Git/Weather/zhengzhou.csv'
+	elif city == 28:
+		filename = 'F:/Git/Weather/tianjin.csv'
 	#elif city == 29:
 	#	filename = 'F:/Git/Weather/xining.csv'
 

@@ -14,8 +14,8 @@ public class SocketTest {
                        //11：杭州 12：合肥 13：呼和浩特 14：济南 15：:遵义
                        //16：拉萨 17：南昌 18：南充 19：南京 20：齐齐哈尔
                        //21：郑州 22：石家庄 23：太原 24：乌鲁木齐 25：西宁
-                       //26：延安 27：延川 
-	 	String i = receive(21,7,23);
+                       //26：延安 27：延川 28：天津
+	 	String i = receive(28,7,21);
 	    System.out.println(i);
 	}
 
@@ -24,7 +24,7 @@ public class SocketTest {
                   //11：杭州 12：合肥 13：呼和浩特 14：济南 15：:遵义
                   //16：拉萨 17：南昌 18：南充 19：南京 20：齐齐哈尔
                   //21：郑州 22：石家庄 23：太原 24：乌鲁木齐 25：西宁
-                  //26：延安 27：延川 
+                  //26：延安 27：延川  28：天津
 	//month和day分别是month和day参数
 	public static String receive(int city,int month,int day)  {
 		//连接主机和端口
