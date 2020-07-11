@@ -20,7 +20,6 @@ import com.test.utils.TextUtils;
 /**
  * �ļ����
  * 
- * @author ch
  *
  */
 @Controller
